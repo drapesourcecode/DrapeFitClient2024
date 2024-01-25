@@ -1,0 +1,47 @@
+.fit-schedule-period {
+  display: flex;
+  gap: 40px;
+  margin: auto;
+  width: 380px;
+
+  > div {
+    width: 100px;
+    height: 100px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: black;
+    border-radius: 100px;
+    border: 1px solid gray;
+    cursor: pointer;
+
+    &.selected {
+      background-color: #e8e8e8;
+    }
+  }
+}
+
+.schedule-button {
+  width: 200px;
+  background: #232f3e;
+  text-align: center;
+  padding: 10px 0px;
+  color: #fe6c00;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'Amazon Ember', Arial, sans-serif;
+  border: none;
+  margin: 23px auto 0 auto;
+  border-radius: 0;
+  display: block;
+
+  &:hover {
+    background: #fe6c00;
+    color: #232f3e;
+    text-decoration: none;
+  }
+}
