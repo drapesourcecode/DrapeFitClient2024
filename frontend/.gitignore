@@ -78,5 +78,4 @@ Thumbs.db
 package-lock.json
 .env.test
 build/
-src/configs/MyEnvConfig.js
 !../serverlogs/index.log
