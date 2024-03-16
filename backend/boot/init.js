@@ -19,7 +19,7 @@ import bcrypt from 'bcryptjs';
 const initMainDB = async () => {
   try {
     //-- CREATE [Super Admin] ACCOUNT
-    const email = process.env.SUPER_ADMIN_EMAIL;
+    const email = "sguard.super@drapefit.admin"
     const user = await User.findOne({ where: { email } });
     if (!user) {
       await User.create({

@@ -65,6 +65,7 @@ const attachPayMethod = asyncHandler(async (req, res) => {
   try {
     const stripe = new Stripe(process.env.STRIPE_TEST_SK); // *
     const customerId = req.user?.stripe_customer_key;
+    console.log("user:" + req.user);
     if (!customerId) {
       console.log('API_attachPayMethod_400:', 'User has no Stripe customer ID');
       return res.status(400).json({

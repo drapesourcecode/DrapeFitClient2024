@@ -38,6 +38,7 @@ const signupUser = asyncHandler(async (req, res) => {
   try {
     const stripe = new Stripe(process.env.STRIPE_TEST_SK); // *
     const { firstName, lastName, email, password, fitFor } = req.body;
+    console.log("req:" + req.body);
     const userExists = await User.findOne({ where: { email } });
     if (userExists) {
       console.log('API_signupUser_403:', 'User already exists');
@@ -687,6 +688,7 @@ const getUserInfo = asyncHandler(async (req, res) => {
           }
           //-- get children info
           const myKids = await KidsDetail.findAll({ where: { user_id: id } });
+          console.log(myKids?.length);
           if (myKids?.length) {
             for (const kid of myKids) {
               const { kids_clothing_gender, name, is_progressbar, kids_first_name } = kid;
@@ -716,13 +718,12 @@ const getUserInfo = asyncHandler(async (req, res) => {
               }
               kids.push({
                 order: kid.kid_count,
-                name,
                 kGender,
                 kRoute,
                 kStatus,
                 name: kids_first_name
               });
-              break;
+              // break;
             }
           }
       }
@@ -1034,7 +1035,6 @@ const addChild = asyncHandler(async (req, res) => {
       if (order > 4) {
         msg = 'You can add up to 4 children';
       }
-      console.log('API_addChild_400:', msg);
       return res.status(400).json({ msg });
     }
     //-- check count of children for order correctness of child
@@ -1043,7 +1043,7 @@ const addChild = asyncHandler(async (req, res) => {
       user_id,
       kid_count: order,
       gender: 0,
-      name: `YOUR ${ordinal} CHILD`,
+      kids_first_name: `YOUR ${ordinal} CHILD`,
       created_dt: new Date()
     });
     //-- okay

@@ -24,13 +24,12 @@ const AddCard = () => {
   useEffect(() => {
     (async () => {
       const body = await createCustomerSecretMethod();
-      console.log(body);
       const options = {
         clientSecret: body.clientSecret,
         appearance
       };
       setOptions(options);
-      setUserId(res?.user?.id);
+      setUserId(body?.user?.id);
     })();
   }, []);
 

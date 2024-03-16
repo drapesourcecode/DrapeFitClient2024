@@ -6,7 +6,7 @@ import GlobalEnv from 'configs/GlobalEnv';
 import MyEnvConfig from 'configs/MyEnvConfig';
 import DFnewLogger from 'utils/DFnewLogger';
 
-export const BaseUrl = GlobalEnv.isDebug ? `${MyEnvConfig.baseurl.dev}/dfnew` : `${MyEnvConfig.baseurl.prod}/dfnew`;
+export const BaseUrl = GlobalEnv.isDebug ? `http://127.0.0.1:5180/api/dfnew` : `${MyEnvConfig.baseurl.prod}/dfnew`;
 
 const Api = axios.create({
   baseURL: BaseUrl,

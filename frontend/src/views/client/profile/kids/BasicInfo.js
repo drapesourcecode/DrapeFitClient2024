@@ -130,7 +130,7 @@ const BasicInfo = () => {
                         className="basic-info-title"
                         sx={{ textAlign: { xs: 'center', sm: 'start', md: 'center' } }}
                       >
-                        Hi ${FirstUpper(user?.kids[kid_count - 1]?.name)}
+                        Hi {FirstUpper(user?.kids[kid_count - 1]?.name)}
                       </Typography>
                       <Typography
                         className="basic-info-content"

@@ -18,6 +18,9 @@ export const addNewKid = (order, navigate) => async (dispatch) => {
     localStorage.setItem('order', order);
     navigate(`/welcome/basic-info/kids`);
   } catch (err) {
+    if (err?.response?.data?.msg == 'You can add up to 4 children') {
+      setAlert('You can add up to 4 children', 'warning');
+    }
     DFnewLogger(err?.message);
     CatchError(err);
   }
@@ -26,7 +29,6 @@ export const addNewKid = (order, navigate) => async (dispatch) => {
 export const kEditBasicInfo = (formData, navigate) => async (dispatch) => {
   try {
     const res = await Api.post(`/kidsprofile/basicinfo/edit`, formData);
-    console.log(formData.kids_clothing_gender);
     if (res.data === 'Basic Info of Kid Fit Profile has been saved') {
       if (navigate) {
         navigate(`/welcome/style-fit/kids/${formData.kids_clothing_gender === `Boy's Product` ? 'boys' : 'girls'}`);

@@ -8,7 +8,8 @@
  */
 import asyncHandler from 'express-async-handler';
 import ShippingAddress from '../../models/admin/shippingAdress.js';
-import User from '../../models/admin/user.js';
+import User, { HashPassword } from '../../models/admin/user.js';
+import { genUsername } from '../../utils/helper.js';
 import UserDetail from '../../models/admin/userDetail.js';
 import bcrypt from 'bcryptjs';
 import LetsPlanYourFirstFix from '../../models/admin/letsPlanYourFirstFix.js';
@@ -115,7 +116,9 @@ const deliverShipAddress = asyncHandler(async (req, res) => {
 
 const editLoginDetails = asyncHandler(async (req, res) => {
   try {
-    let user = await User.findOne({ id: req.user.id });
+    let user = await User.findOne({ where: {
+      email: req.body.email
+    }});
     if (!user) {
       console.log('API_editLoginDetails_400:', 'User not found');
       return res.status(400).json({
@@ -123,6 +126,7 @@ const editLoginDetails = asyncHandler(async (req, res) => {
       });
     }
     const { first_name, last_name, currentPwd, newPwd, confirmPwd } = req.body;
+    console.log("current_pwd:" + user.password);
     const isMatch = await bcrypt.compare(currentPwd, user.password);
     if (!isMatch) {
       console.log('API_editLoginDetails_400:', 'Current Password is incorrect');
@@ -143,7 +147,7 @@ const editLoginDetails = asyncHandler(async (req, res) => {
         });
       }
     }
-    await UserDetail.update({ first_name, last_name }, { where: { user_id: user.id } });
+    // await UserDetail.update({ first_name, last_name }, { where: { user_id: user.id } });
     user.password = await HashPassword(newPwd);
     user.name = genUsername(first_name, last_name);
     user.lastmodify_dt = new Date();
