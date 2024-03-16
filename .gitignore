@@ -77,13 +77,13 @@ Thumbs.db
 ### Custom Configuration
 # By li.yang@drapefit.com
 package-lock.json
-.env
-.env.test
-*.env
-!frontend/.env
-frontend/src/configs/MyEnvConfig.js
+
+
+
+
+
 !serverlogs/index.log
 uploads/*
 !uploads/index.txt
-newrelic.cjs
+
 *.xml.bkp
