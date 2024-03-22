@@ -25,7 +25,7 @@ const ImageSelectorRadioGroup = (props) => {
                   className="body-shape-box"
                   onClick={() => {
                     if (!props.disabled) {
-                      props.setFieldValue(props.name, index);
+                      props.setFieldValue(props.name, index + 1);
                     }
                   }}
                   style={{ borderColor: props.value === index ? '#ff6c00' : '#eee' }}

@@ -104,8 +104,8 @@ const BasicInfo = () => {
     weight_lbs: 0,
     birthday: new Date(),
     parent: 0,
-    body_type: 0,
-    skin_tone: 0,
+    body_type: -1,
+    skin_tone: -1,
     bra: '--',
     bra_recomend: '--',
     shirt_blouse: '--',
@@ -382,7 +382,7 @@ const BasicInfo = () => {
                       <Grid item xs={12}>
                         <ImageSelectorRadioGroup
                           content={wiBodyShapeLabel}
-                          value={values.body_type}
+                          value={values.body_type - 1}
                           setFieldValue={setFieldValue}
                           name="body_type"
                           touched={touched}
@@ -810,7 +810,7 @@ const BasicInfo = () => {
                         <ColorCircular
                           touched={touched}
                           errors={errors}
-                          value={values.skin_tone}
+                          value={values.skin_tone - 1}
                           setFieldValue={setFieldValue}
                         />
                       </Grid>

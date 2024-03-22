@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -106,20 +107,20 @@ const StyleCustom = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Grid container spacing={4}>
-                      <Grid item xs={12} sm={6} md={4}>
-                        <ImageUpload arg="dsgnImgUrl1st" value={values.dsgnImgUrl1st} setFieldValue={setFieldValue} />
+                      <Grid item xs={12} sm={6} md={4} style={{display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
+                        <ImageUpload arg="dsgnImgUrl1st" value={values.dsgnImgUrl1st || 'http://localhost/drapefitlive/assets/men-img/mencustomdesign1.jpg'} setFieldValue={setFieldValue} />
                         <Typography className="basic-info-sub-title" align="center">
                           First Design
                         </Typography>
                       </Grid>
-                      <Grid item xs={12} sm={6} md={4}>
-                        <ImageUpload arg="dsgnImgUrl2nd" value={values.dsgnImgUrl2nd} setFieldValue={setFieldValue} />
+                      <Grid item xs={12} sm={6} md={4} style={{display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
+                        <ImageUpload arg="dsgnImgUrl2nd" value={values.dsgnImgUrl2nd || 'http://localhost/drapefitlive/assets/men-img/mencustomdesign2.jpg'} setFieldValue={setFieldValue} />
                         <Typography className="basic-info-sub-title" align="center">
                           Second Design
                         </Typography>
                       </Grid>
-                      <Grid item xs={12} sm={6} md={4}>
-                        <ImageUpload arg="dsgnImgUrl3rd" value={values.dsgnImgUrl3rd} setFieldValue={setFieldValue} />
+                      <Grid item xs={12} sm={6} md={4} style={{display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
+                        <ImageUpload arg="dsgnImgUrl3rd" value={values.dsgnImgUrl3rd || 'http://localhost/drapefitlive/assets/men-img/mencustomdesign3.jpg'} setFieldValue={setFieldValue} />
                         <Typography className="basic-info-sub-title" align="center">
                           Third Design
                         </Typography>

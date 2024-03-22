@@ -1,6 +1,6 @@
 const config = {
   basename: '',
-  defaultPath: '/',
+  defaultPath: '/src',
   fontFamily: `'Source Sans Pro', sans-serif`,
   borderRadius: 12
 };

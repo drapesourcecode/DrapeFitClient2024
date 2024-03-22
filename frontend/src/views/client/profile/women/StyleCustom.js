@@ -106,20 +106,50 @@ const StyleCustom = () => {
                     </Grid>
                     <Grid item xs={12}>
                       <Grid container spacing={4}>
-                        <Grid item xs={12} sm={6} md={4}>
-                          <ImageUpload arg="img_1" value={values.img_1} setFieldValue={setFieldValue} />
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          md={4}
+                          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+                        >
+                          <ImageUpload
+                            arg="img_1"
+                            value={values.img_1 || 'http://localhost/drapefitlive/assets/women-img/Women-costum1.jpg'}
+                            setFieldValue={setFieldValue}
+                          />
                           <Typography className="basic-info-sub-title" align="center">
                             First Design
                           </Typography>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                          <ImageUpload arg="img_2" value={values.img_2} setFieldValue={setFieldValue} />
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          md={4}
+                          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+                        >
+                          <ImageUpload
+                            arg="img_2"
+                            value={values.img_2 || 'http://localhost/drapefitlive/assets/women-img/Women-costum2.jpg'}
+                            setFieldValue={setFieldValue}
+                          />
                           <Typography className="basic-info-sub-title" align="center">
                             Second Design
                           </Typography>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                          <ImageUpload arg="img_3" value={values.img_3} setFieldValue={setFieldValue} />
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          md={4}
+                          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+                        >
+                          <ImageUpload
+                            arg="img_3"
+                            value={values.img_3 || 'http://localhost/drapefitlive/assets/women-img/Women-costum3.jpg'}
+                            setFieldValue={setFieldValue}
+                          />
                           <Typography className="basic-info-sub-title" align="center">
                             Third Design
                           </Typography>

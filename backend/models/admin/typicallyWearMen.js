@@ -56,10 +56,12 @@ const TypicallyWearMen = sequelize.define(
       type: DataTypes.STRING
     },
     body_type: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      defaultValue: -1
     },
     skin_tone: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      defaultValue: -1
     }
   },
   {

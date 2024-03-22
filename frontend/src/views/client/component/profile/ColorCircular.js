@@ -27,7 +27,7 @@ const ColorCircular = (props) => {
                 component="div"
                 onClick={() => {
                   if (!props?.disabled) {
-                    props.setFieldValue('skin_tone', index);
+                    props.setFieldValue('skin_tone', index + 1);
                   }
                 }}
                 style={{

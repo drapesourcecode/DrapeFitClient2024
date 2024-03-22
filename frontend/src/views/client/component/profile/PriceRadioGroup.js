@@ -32,7 +32,7 @@ const PriceRadioGroup = (props) => {
                         disabled={props?.disabled}
                         className="profession-radio-btn"
                         style={{ margin: '-6px 0' }}
-                        value={index}
+                        value={index + 1}
                         control={<CustomRadio />}
                         label={item}
                       />

@@ -138,7 +138,7 @@ const getWomenFPBasicInfo = asyncHandler(async (req, res) => {
 const editWomenFPStyleFit = asyncHandler(async (req, res) => {
   try {
     const { ...values } = req.body;
-    const user_id = req.user.id;
+    const user_id = req.body.user_id;
     let { is_progressbar } = await UserDetail.findOne({ where: { user_id } });
     let womenStyleData = await WomenStyle.findOne({ where: { user_id } });
     if (womenStyleData) {

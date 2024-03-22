@@ -10,6 +10,7 @@ import { setAlert } from 'actions/common/alert';
 import MyEnvConfig from 'configs/MyEnvConfig';
 import GlobalEnv from 'configs/GlobalEnv';
 import DFnewLogger from 'utils/DFnewLogger';
+import GenS3Link from 'utils/GenS3Link';
 
 const beforeUpload = (file) => {
   try {

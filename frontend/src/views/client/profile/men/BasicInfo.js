@@ -99,8 +99,8 @@ const BasicInfo = () => {
     shoe: '--',
     shoe_medium: '',
     your_occupation: '',
-    body_type: 0,
-    skin_tone: 0,
+    body_type: -1,
+    skin_tone: -1,
     linkdin_profile: '',
     instagram: '',
     twitter: '',
@@ -584,7 +584,7 @@ const BasicInfo = () => {
                       <Grid item xs={12}>
                         <ImageSelectorRadioGroup
                           content={iBodyShapeLabel}
-                          value={values.body_type || 0}
+                          value={values.body_type - 1}
                           setFieldValue={setFieldValue}
                           name="body_type"
                           touched={touched}
@@ -602,7 +602,7 @@ const BasicInfo = () => {
                           touched={touched}
                           errors={errors}
                           name="skin_tone"
-                          value={values.skin_tone || 0}
+                          value={values.skin_tone - 1}
                           setFieldValue={setFieldValue}
                         />
                       </Grid>

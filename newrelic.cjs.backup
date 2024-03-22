@@ -12,10 +12,6 @@ exports.config = {
   license_key: 'YOUR_NEW_RELIC_LICENSE_KEY',
   logging: {
     level: 'info'
-  },
-  api: {
-    esm: {
-      custom_instrumentation_entrypoint: './backend/custom-instrument/index.js'
     }
   },
   allow_all_headers: true,

@@ -36,7 +36,7 @@ const ImageSelectorCheckbox = (props) => {
                       <Checkbox
                         disabled={props.disabled}
                         onBlur={props.handleBlur}
-                        value={index}
+                        value={index + 1}
                         onChange={props.handleChange}
                         name={props.name}
                       />
@@ -45,12 +45,12 @@ const ImageSelectorCheckbox = (props) => {
                       <Box
                         component="div"
                         className="body-shape-box"
-                        style={{ borderColor: props?.value?.includes(`${index}`) ? '#ff6c00' : '#eee' }}
+                        style={{ borderColor: props?.value?.includes(`${index + 1}`) ? '#ff6c00' : '#eee' }}
                       >
                         <FontAwesomeIcon
                           className="check-icon"
                           icon={faCircleCheck}
-                          style={{ display: props?.value?.includes(`${index}`) ? 'block' : 'none' }}
+                          style={{ display: props?.value?.includes(`${index + 1}`) ? 'block' : 'none' }}
                         />
 
                         <DFnewImgTag

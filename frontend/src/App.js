@@ -99,7 +99,7 @@ const App = () => {
     if (user && user.user_id) {
       dispatch(getUserProducts());
       dispatch(getAllAddress());
-      dispatch(getPaymentMethods());
+      // dispatch(getPaymentMethods());
     }
   }, [user, dispatch]);
 

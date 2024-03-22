@@ -23,7 +23,11 @@ export const loadUser = (navigate) => async (dispatch) => {
     if (navigate) {
       localStorage.setItem('fitFor', res.data?.fitFor);
       setTimeout(() => {
-        navigate('/');
+        if (res.data.user_detail.gender === '1') {
+          navigate('/welcome/basic-info/men');
+        } else {
+          navigate('/welcome/basic-info/women');
+        }
       }, 0);
     }
   } catch (err) {

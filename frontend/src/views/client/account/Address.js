@@ -44,7 +44,7 @@ const Address = () => {
     city: '',
     state: '',
     zipcode: '',
-    country: '',
+    country: 'United States',
     phone: ''
   };
   const [initVal, setInitVal] = useState(defaultAddrData);
