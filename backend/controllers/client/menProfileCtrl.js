@@ -8,6 +8,7 @@
  */
 import asyncHandler from 'express-async-handler';
 import MenFit from '../../models/client/menFit.js';
+import MenStyleSphereSelection from '../../models/client/menStyleSphereSelection.js'
 import MenStats from '../../models/client/menStats.js';
 import MenStyle from '../../models/client/menStyle.js';
 import MenBrand from '../../models/client/menBrand.js';
@@ -95,6 +96,56 @@ const editMenStyleFit = asyncHandler(async (req, res) => {
       },
       { where: { user_id } }
     );
+    const sphereSelection = await MenStyleSphereSelection.findOne({ where: { user_id } });
+    let shirt_shoulder_str = shirt_shoulder.toString();
+    let casual_shirts_to_fit_str = casual_shirts_to_fit.toString();
+    let button_up_shirts_to_fit_str = button_up_shirts_to_fit.toString();
+    let jeans_to_fit_str = jeans_to_fit.toString();
+    var shirt_shoulder_res = '';
+    var casual_shirts_to_fit_res = '';
+    var button_up_shirts_to_fit_res = '';
+    var jeans_to_fit_res = ''
+    for (let i = 0; i < shirt_shoulder_str.length; i ++) {
+      shirt_shoulder_res += shirt_shoulder_str[i];
+    }
+    for (let i = 0; i < casual_shirts_to_fit_str.length; i ++) {
+      if (casual_shirts_to_fit_str[i] >= '0' && casual_shirts_to_fit_str <= '9') {
+        casual_shirts_to_fit_res += (parseInt(casual_shirts_to_fit_str[i]) + 3).toString();
+      } else {
+        casual_shirts_to_fit_res += casual_shirts_to_fit_str[i];
+      }
+    }
+    for (let i = 0; i < button_up_shirts_to_fit_str.length; i ++) {
+      if (button_up_shirts_to_fit_str[i] >= '0' && button_up_shirts_to_fit_str <= '9') {
+        button_up_shirts_to_fit_res += (parseInt(button_up_shirts_to_fit_str[i]) + 5).toString();
+      } else {
+        button_up_shirts_to_fit_res += button_up_shirts_to_fit_str[i];
+      }
+    }
+    for (let i = 0; i < jeans_to_fit_str.length; i ++) {
+        jeans_to_fit_res += jeans_to_fit_str[i];
+    }
+    if (sphereSelection) {
+      await MenStyleSphereSelection.update(
+        {
+          style_sphere_selections_v2: shirt_shoulder_res,
+          style_sphere_selections_v3: casual_shirts_to_fit_res,
+          style_sphere_selections_v4: button_up_shirts_to_fit_res,
+          style_sphere_selections_v5: jeans_to_fit_res,
+        },
+        { where: {user_id}}
+      )
+    } else {
+      await MenStyleSphereSelection.create(
+        {
+          user_id: user_id,
+          style_sphere_selections_v2: shirt_shoulder_res,
+          style_sphere_selections_v3: casual_shirts_to_fit_res,
+          style_sphere_selections_v4: button_up_shirts_to_fit_res,
+          style_sphere_selections_v5: jeans_to_fit_res
+        },
+      )
+    }
     let { is_progressbar } = await UserDetail.findOne({ where: { user_id } });
     if (is_progressbar < 50) {
       await UserDetail.update({ is_progressbar: 50 }, { where: { user_id } });

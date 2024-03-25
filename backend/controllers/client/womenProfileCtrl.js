@@ -142,7 +142,12 @@ const editWomenFPStyleFit = asyncHandler(async (req, res) => {
     let { is_progressbar } = await UserDetail.findOne({ where: { user_id } });
     let womenStyleData = await WomenStyle.findOne({ where: { user_id } });
     if (womenStyleData) {
-      await WomenStyle.update({ ...values }, { where: { user_id } });
+      const updateWoman = await WomenStyle.findOne({ where: { user_id }});
+      updateWoman.distressed_denim_non = req.body.distressed_denim_non;
+      updateWoman.distressed_denim_minimally = req.body.distressed_denim_minimally;
+      updateWoman.distressed_denim_fairly = req.body.distressed_denim_fairly;
+      updateWoman.distressed_denim_heavily = req.body.distressed_denim_heavily;
+      await updateWoman.save();
     } else {
       await WomenStyle.create({ ...values, user_id });
     }
